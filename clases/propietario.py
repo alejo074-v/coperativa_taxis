@@ -1,9 +1,9 @@
 class Propietario:
 
     def __init__(self, cedula, nombre, telefono):
-        self.cedula = cedula
-        self.nombre = nombre
-        self.telefono = telefono
+        self._cedula = cedula
+        self._nombre = nombre
+        self._telefono = telefono
     
     @property
     def cedula(self):
@@ -11,31 +11,29 @@ class Propietario:
 
     @cedula.setter
     def cedula(self, cedula):
-        self.cedula = cedula
+        self._cedula = cedula
     
     @property
     def nombre(self):
-        return self.nombre
+        return self._nombre
 
     @nombre.setter
     def nombre(self, nombre):
-        self.nombre = nombre
+        self._nombre = nombre
     
     @property
     def telefono(self):
-        return self.telefono
+        return self._telefono
 
     @telefono.setter
     def telefono(self, telefono):
-        self.telefono = telefono
+        self._telefono = telefono
     
     def toString(self):
-        return str(
-            "Propietario{cedula=",self.cedula,
-            ", nombre=",self.nombre,
-            ", telefono=",self.telefono,
-            "}"
-        )
+        cadena = "Propietario{cedula="+str(self._cedula)
+        cadena += ", nombre="+str(self._nombre)
+        cadena += ", telefono="+str(self._telefono)+"}"
+        return cadena
 
 if __name__ == '__main__':
     propietario = Propietario(cedula=10323020, nombre="Oracio", telefono= 3135063124)
