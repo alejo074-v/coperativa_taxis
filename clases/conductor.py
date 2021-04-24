@@ -39,10 +39,17 @@ class Conductor:
         self._contadorConductores = contadorConductores
 
     def toString(self):
-        cadena = "Propietario {nombre : " + str(self._nombre)
+        cadena = "Conductor {nombre : " + str(self._nombre)
         cadena += ", cedula : " + str(self._cedula)
         cadena += ", salario : " + str(self._salario) + "}"
         return cadena
+
+    def toString1(self):
+        cadena = "Conductor [nombre : " + str(self._nombre)
+        cadena += ", cedula : " + str(self._cedula)
+        cadena += ", salario : " + str(self._salario) + "]"
+        return cadena
+        
 
 if __name__ == "__main__":
     conductor = Conductor(nombre="Alejandro", cedula=1007213957, salario=1250000, contadorConductores=2)

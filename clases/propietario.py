@@ -35,6 +35,12 @@ class Propietario:
         cadena += ", telefono : "+str(self._telefono)+"}"
         return cadena
 
+    def toString1(self):
+        cadena = "Propietario [cedula : "+str(self._cedula)
+        cadena += ", nombre : "+str(self._nombre)
+        cadena += ", telefono : "+str(self._telefono)+"]"
+        return cadena
+
 if __name__ == '__main__':
     propietario = Propietario(cedula=10323020, nombre="Oracio", telefono= 3135063124)
     print(propietario.toString())
