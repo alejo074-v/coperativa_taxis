@@ -1,4 +1,6 @@
-import conductor, propietario
+from propietario import Propietario
+from conductor import Conductor
+
 class Taxi:
     def __init__(self, marca, modelo, placa, tamañoMotor, propietarioT, conductorT):
         self._marca = marca
@@ -51,7 +53,7 @@ class Taxi:
         return cadena
 
 if __name__ == "__main__":
-    propietario = propietario.Propietario(cedula=10323020, nombre="Oracio", telefono= 3135063124)
-    conductor = conductor.Conductor(nombre="Alejandro", cedula=1007213957, salario=1250000, contadorConductores=2)
+    propietario = Propietario(cedula=10323020, nombre="Oracio", telefono= 3135063124)
+    conductor = Conductor(nombre="Alejandro", cedula=1007213957, salario=1250000)
     taxi = Taxi(marca="Cars", modelo=2014, placa="UTF-8", tamañoMotor=3000, propietarioT = propietario, conductorT = conductor)
     print(taxi.toString())
