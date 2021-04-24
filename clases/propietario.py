@@ -30,9 +30,9 @@ class Propietario:
         self._telefono = telefono
     
     def toString(self):
-        cadena = "Propietario{cedula="+str(self._cedula)
-        cadena += ", nombre="+str(self._nombre)
-        cadena += ", telefono="+str(self._telefono)+"}"
+        cadena = "Propietario{cedula : "+str(self._cedula)
+        cadena += ", nombre : "+str(self._nombre)
+        cadena += ", telefono : "+str(self._telefono)+"}"
         return cadena
 
 if __name__ == '__main__':
