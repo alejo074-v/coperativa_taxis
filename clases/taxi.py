@@ -48,12 +48,16 @@ class Taxi:
         cadena += ", modelo : " + str(self.modelo)
         cadena += ", placa : " + str(self.placa)
         cadena += ", tama\u00f1oMotor : " + str(self.tamañoMotor)
-        cadena += ", " + self._propietarioT.toString1()
-        cadena += ", " + self._conductorT.toString1() + "}"
+        cadena += ", nombre propietario: " + str(self._propietarioT.nombre)
+        cadena += ", cédula propietario: " + str(self._propietarioT.cedula)
+        cadena += ", teléfono propietario: " + str(self._propietarioT.telefono)
+        cadena += ", nombre conductor: " + str(self._conductorT.nombre)
+        cadena += ", cédula conductor: " + str(self._conductorT.cedula)
+        cadena += ", salário conductor: " + str(self._conductorT.salario) + "}"
         return cadena
 
 if __name__ == "__main__":
-    propietario = Propietario(cedula=10323020, nombre="Oracio", telefono= 3135063124)
+    propietario = Propietario(nombre="Oracio", cedula=10323020, telefono= 3135063124)
     conductor = Conductor(nombre="Alejandro", cedula=1007213957, salario=1250000)
     taxi = Taxi(marca="Cars", modelo=2014, placa="UTF-8", tamañoMotor=3000, propietarioT = propietario, conductorT = conductor)
     print(taxi.toString())

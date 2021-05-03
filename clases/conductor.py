@@ -7,7 +7,7 @@ class Conductor:
     
     @property
     def nombre(self):
-        return self.cedula
+        return self._nombre
     
     @nombre.setter
     def nombre(self, nombre):
@@ -15,7 +15,7 @@ class Conductor:
     
     @property
     def cedula(self):
-        return self.cedula
+        return self._cedula
     
     @cedula.setter
     def cedula(self, cedula):
@@ -23,26 +23,8 @@ class Conductor:
     
     @property
     def salario(self):
-        return self.salario
+        return self._salario
     
     @salario.setter
     def salario(self, salario):
         self._salario = salario
-    
-
-    def toString(self):
-        cadena = "Conductor {nombre : " + str(self._nombre)
-        cadena += ", cedula : " + str(self._cedula)
-        cadena += ", salario : " + str(self._salario) + "}"
-        return cadena
-
-    def toString1(self):
-        cadena = "Conductor [nombre : " + str(self._nombre)
-        cadena += ", cedula : " + str(self._cedula)
-        cadena += ", salario : " + str(self._salario) + "]"
-        return cadena
-        
-
-if __name__ == "__main__":
-    conductor = Conductor(nombre="Alejandro", cedula=1007213957, salario=1250000) #contadorConductores=2)
-    print(conductor.toString())

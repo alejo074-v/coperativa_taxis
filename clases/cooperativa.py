@@ -3,7 +3,7 @@ from conductor import Conductor
 from propietario import Propietario
 from os import system
 
-taxis = range(4)
+taxis = [0]*4
 
 class Cooperativa:
     def __init__(self, taxis):
@@ -42,46 +42,77 @@ class Cooperativa:
             SystemExit
 
     def ingresar_datos():
+        system('cls')
         print("Ingrese el nombre del propietario abajo")
         nombreC = str(input())
+        system('cls')
 
         print("Ingrese la cédula del propietario abajo")
         cedulaC = int(input())
+        system('cls')
 
         print("Ingrese el teléfono del propietario abajo")
         telefonoC = int(input())
         # Objeto tipo propietario 
-        propietarioC = propietario.Propietario(cedula=cedulaC, nombre=nombreC, telefono=telefonoC)
+        propietarioC = Propietario(cedula=cedulaC, nombre=nombreC, telefono=telefonoC)
+        system('cls')
 
         print("Ingrese el nombre del conductor abajo")
         nombreC = str(input())
+        system('cls')
 
         print("Ingrese la cédula del conductor abajo")
         cedulaC = int(input())
+        system('cls')
 
         print("Ingrese el salário del conductor abajo")
         salarioC = int(input())
         # Objeto tipo conductor
-        conductorC = conductor.Conductor(nombre=nombreC, cedula=cedulaC, salario=salarioC)
+        conductorC = Conductor(nombre=nombreC, cedula=cedulaC, salario=salarioC)
+        system('cls')
 
         print("Ingresa la marca del auto abajo")
         marcaC = str(input())
+        system('cls')
 
         print("Ingrese el modelo del auto abajo")
         modeloC = int(input())
+        system('cls')
 
         print("Ingrese la placa del auto abajo")
-        placaC = int(input())
+        placaC = str(input())
+        system('cls')
 
         print("Ingrese el tamaño de motor del auto abajo")
         tamaño_motorC = int(input())
+        system('cls')
         # Objeto tipo taxi
 
-        for i in taxi:
-            taxis = taxi.Taxi(marca=marcaC, modelo=modeloC, placa=placaC, tamañoMotor=tamaño_motorC, propietarioT=propietarioC, conductorT=conductorC)
+        i = 0
+        while i < len(taxis):
+            if taxis[i] == 0:
+                i = Taxi(marca=marcaC, modelo=modeloC, placa=placaC, tamañoMotor=tamaño_motorC, propietarioT=propietarioC, conductorT=conductorC)
+            elif i == len(taxis) and i != 0:
+                print("La base de datos está llena así que no podemos guardar más taxis")
+            i = i + 1
 
     def buscar_taxi_propietario():
-        pass
+        system('cls')
+        print("Ingresa la cédula del propietario abajo")
+        cedula = int(input())
+        let = True
+
+        i = 0
+        while i < 4:
+            if taxis[i].propietarioT.cedula == cedula:
+                print(taxi[i].toString())
+            else:
+                let = False
+            i += 1
+        
+        if let != True:
+            print("Cédula no encontrada")
+            
 
     def total_pagar_conductore():
         pass
