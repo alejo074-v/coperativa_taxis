@@ -86,16 +86,6 @@ class Cooperativa:
         system('cls')
 
         # Objeto tipo taxi
-
-        i = 0
-        while i < len(taxis):
-            if taxis[i] == 0:
-                i = Taxi(marca=marcaC, modelo=modeloC, placa=placaC, tamañoMotor=tamaño_motorC, propietarioT=propietarioC, conductorT=conductorC)
-            elif i == len(taxis) and i != 0:
-                print("La base de datos está llena así que no podemos guardar más taxis")
-            i = i + 1
-
-        # Objeto tipo taxi
         change = False
         i = 0
         while i < len(taxis):
@@ -113,7 +103,6 @@ class Cooperativa:
         system('cls')
         print("Ingresa la cédula del propietario abajo")
         cedula = int(input())
-<<<<<<< HEAD
 
         let = False
         i = 0
