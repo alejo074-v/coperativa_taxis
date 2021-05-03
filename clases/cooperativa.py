@@ -5,14 +5,12 @@ from os import system
 
 taxis = range(4)
 
-
 class Cooperativa:
     def __init__(self, taxis):
         self._taxis = taxis
     
     
     def menu():
-        taxis = range(4)
         opcion = 0
         while opcion < 1 or opcion > 6:
             print("     Menu Principal De Gestion de la cooperativa")
@@ -27,100 +25,69 @@ class Cooperativa:
 
         if opcion == 1:
             Cooperativa.ingresar_datos()
-            Cooperativa.menu()
+            menu()
         if opcion == 2:
             Cooperativa.buscar_taxi_propietario()
-            Cooperativa.menu()
+            menu()
         if opcion == 3:
             Cooperativa.total_pagar_conductore()
-            Cooperativa.menu()
+            menu()
         if opcion == 4:
             Cooperativa.datos_taxi()
-            Cooperativa.menu()
+            menu()
         if opcion == 5:
             Cooperativa.salario_conductor()
-            Cooperativa.menu()
+            menu()
         if opcion == 6:
             SystemExit
 
-    # Obtener datos de cada taxi
     def ingresar_datos():
-        system('cls')
         print("Ingrese el nombre del propietario abajo")
-        nombre = str(input())
-        system('cls')
+        nombreC = str(input())
 
         print("Ingrese la cédula del propietario abajo")
-        cedula = int(input())
-        system('cls')
+        cedulaC = int(input())
 
         print("Ingrese el teléfono del propietario abajo")
-        telefono = int(input())
+        telefonoC = int(input())
         # Objeto tipo propietario 
-        system('cls')
-        propietario = Propietario(cedula=cedula, nombre=nombre, telefono=telefono)
-        print(propietario.toString())
+        propietarioC = propietario.Propietario(cedula=cedulaC, nombre=nombreC, telefono=telefonoC)
 
         print("Ingrese el nombre del conductor abajo")
-        nombre = str(input())
-        system('cls')
+        nombreC = str(input())
 
         print("Ingrese la cédula del conductor abajo")
-        cedula = int(input())
-        system('cls')
+        cedulaC = int(input())
 
         print("Ingrese el salário del conductor abajo")
-        salario = int(input())
-        system('cls')
+        salarioC = int(input())
         # Objeto tipo conductor
-        conductor = Conductor(nombre=nombre, cedula=cedula, salario=salario)
-        print(conductor.toString())
+        conductorC = conductor.Conductor(nombre=nombreC, cedula=cedulaC, salario=salarioC)
 
         print("Ingresa la marca del auto abajo")
-        marca = str(input())
-        system('cls')
+        marcaC = str(input())
 
         print("Ingrese el modelo del auto abajo")
-        modelo = int(input())
-        system('cls')
+        modeloC = int(input())
 
         print("Ingrese la placa del auto abajo")
-        placa = str(input())
-        system('cls')
+        placaC = int(input())
 
         print("Ingrese el tamaño de motor del auto abajo")
-        tamaño_motor = int(input())
-        system('cls')
+        tamaño_motorC = int(input())
         # Objeto tipo taxi
 
-        for i in taxis:
-            i = Taxi(marca=marca, modelo=modelo, placa=placa, tamañoMotor=tamaño_motor, propietarioT=propietario, conductorT=conductor)
+        for i in taxi:
+            taxis = taxi.Taxi(marca=marcaC, modelo=modeloC, placa=placaC, tamañoMotor=tamaño_motorC, propietarioT=propietarioC, conductorT=conductorC)
 
-    # Buscar referencias de automovil por medio de celula del propietario
     def buscar_taxi_propietario():
-        print("Ingrese la cédula abajo")
-        cedula = int(input())
-        for i in range(len(taxis)):
-            if cedula == "":
-                print("Cedula no encontrada")
-                break
-            else:
-                if taxis[i].cedula == cedula:
-                    print(taxis[i].toString())
-            i+=1
-        
-            
-
+        pass
 
     def total_pagar_conductore():
-        total_salario = 0
-        for i in range(len(taxis)):
-            total_salario += taxis[i].salario
-            i+=1
-        print("El total a pagar a los conductores es: $" + total_salario)
+        pass
 
     def datos_taxi():
-        
+        pass
 
     def salario_conductor():
         pass
