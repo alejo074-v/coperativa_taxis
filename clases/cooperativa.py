@@ -22,20 +22,21 @@ class Cooperativa:
 
         if opcion == 1:
             Cooperativa.ingresar_datos()
-            Cooperativa.menu()
+            Cooperativa.__init__()
         if opcion == 2:
             Cooperativa.buscar_taxi_propietario()
-            Cooperativa.menu()
+            Cooperativa.__init__()
         if opcion == 3:
-            Cooperativa.total_pagar_conductore()
-            Cooperativa.menu()
+            Cooperativa.total_pagar_conductores()
+            Cooperativa.__init__()
         if opcion == 4:
             Cooperativa.datos_taxi()
-            Cooperativa.menu()
+            Cooperativa.__init__()
         if opcion == 5:
             Cooperativa.salario_conductor()
-            Cooperativa.menu()
+            Cooperativa.__init__()
         if opcion == 6:
+            system('cls')
             SystemExit
 
     # Ingresar datos de cada taxi
@@ -90,7 +91,7 @@ class Cooperativa:
         i = 0
         while i < len(taxis):
             if taxis[i] == 0:
-                taxis[i] = Taxi(marca="Tesla", modelo=2000, placa="UTF-8", tamañoMotor=200, propietarioT=propietarioC, conductorT=conductorC)
+                taxis[i] = Taxi(marca=marcaC, modelo=modeloC, placa=placaC, tamañoMotor=tamaño_motorC, propietarioT=propietarioC, conductorT=conductorC)
                 change = True
                 break
             i = i+1
@@ -101,29 +102,75 @@ class Cooperativa:
     # Buscar el propietario de algún taxi por medio de la cédula 
     def buscar_taxi_propietario():
         system('cls')
-        print("Ingresa la cédula del propietario abajo")
-        cedula = int(input())
+        if taxis[0] == 0:
+            print("No se han ingresado datos aún")
+        else:
+            print("Ingresa la cédula del propietario abajo")
+            cedula = int(input())
 
-        let = False
-        i = 0
-        while i < len(taxis):
-            if taxis[i]._propietarioT.cedula == cedula:
-                print(taxi[i].toString())
-                let = True
-                break
-        
-        if let == False:
-            print("Cédula no encontrada")
+            let = False
+            i = 0
+            while i < len(taxis):
+                if taxis[i]._propietarioT.cedula == cedula:
+                    print(taxi[i].general_to_string())
+                    let = True
+                    break
+            
+            if let == False:
+                print("Cédula no encontrada")
             
 
-    def total_pagar_conductore():
-        pass
-
+    # Calcular y mostrar el total a pagar con el salario de los conductores registrados
+    def total_pagar_conductores():
+        system('cls')
+        if taxis[0] == 0:
+            print("No se han ingresado datos aún")
+        else:
+            total_salario = 0
+            i = 0
+            while i < len(taxis):
+                if taxis[i] != 0:
+                    total_salario += taxis[i]._conductorT.salario
+                else:
+                    break # Because tha means that the index since this are empty
+            
+            print("El total a pagar es: " + total_salario)
+                    
+    # Mostar datos de un taxi en específico
     def datos_taxi():
-        pass
+        system('cls')
+        if taxis[0] == 0:
+            print("No se han ingresado datos aún")
+        else:
+            print("Ingrese la placa abajo")
+            placa = str(input())
 
+            for i in taxis:
+                if placa == i._placa:
+                    print("Los datos del taxi son: " + i.marca_to_string())
+                    break
+                elif i == 0:
+                    print("Placa no identificada.")
+                    break
+
+    # Mostrar el salario de un conductor en específico
     def salario_conductor():
-        pass
+        system('cls')
+        if taxis[0] == 0:
+            print("No se han ingresado datos aún")
+        else:
+            print("Ingrese la cédula del conductor abajo")
+            cedula_conductor = int(input())
+
+            i = 0
+            while i < len(taxis):
+                if taxis[i]._conductorT.cedula == cedula_conductor:
+                    pagar = taxis[i]._condutorT.salario
+                    print("El salario para este conductor es: " + pagar)
+                    break
+                elif taxis[i] == 0:
+                    print("Cédula no encontrada")
+                    break
 
 
 

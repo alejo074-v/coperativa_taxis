@@ -43,7 +43,7 @@ class Taxi:
         self._tamañoMotor = tamañoMotor
 
 
-    def toString(self):
+    def general_to_string(self):
         cadena = "Taxi{marca : " + str(self._marca)
         cadena += ", modelo : " + str(self.modelo)
         cadena += ", placa : " + str(self.placa)
@@ -55,9 +55,10 @@ class Taxi:
         cadena += ", cédula conductor: " + str(self._conductorT.cedula)
         cadena += ", salário conductor: " + str(self._conductorT.salario) + "}"
         return cadena
-
-if __name__ == "__main__":
-    propietario = Propietario(nombre="Oracio", cedula=10323020, telefono= 3135063124)
-    conductor = Conductor(nombre="Alejandro", cedula=1007213957, salario=1250000)
-    taxi = Taxi(marca="Cars", modelo=2014, placa="UTF-8", tamañoMotor=3000, propietarioT = propietario, conductorT = conductor)
-    print(taxi.toString())
+    
+    def taxi_to_string(self):
+        cadena = "Taxi{marca : " + str(self._marca)
+        cadena += ", modelo : " + str(self.modelo)
+        cadena += ", placa : " + str(self.placa)
+        cadena += ", tama\u00f1oMotor : " + str(self.tamañoMotor) + "}"
+        return cadena
