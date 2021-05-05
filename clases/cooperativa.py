@@ -9,7 +9,8 @@ taxis = [0]*4
 class Cooperativa:
     def __init__():
         opcion = 0
-        while opcion < 1 or opcion > 6:
+        while opcion != '1' and opcion != '2' and opcion != '3' and opcion != '4' \
+            and opcion != '5' and opcion != '6':
             print("     Menu Principal De Gestion de la cooperativa")
             print("[ 1 ]. Ingresar datos.")
             print("[ 2 ]. Buscar taxis de propietario.")
@@ -18,24 +19,27 @@ class Cooperativa:
             print("[ 5 ]. Buscar salario de conductor.")
             print("[ 6 ]. Salir.")
             print("Ingresa la opcion abajo")
-            opcion = int(input())
+            opcion = str(input())
 
-        if opcion == 1:
+
+
+
+        if opcion == '1':
             Cooperativa.ingresar_datos()
             Cooperativa.__init__()
-        if opcion == 2:
+        if opcion == '2':
             Cooperativa.buscar_taxi_propietario()
             Cooperativa.__init__()
-        if opcion == 3:
+        if opcion == '3':
             Cooperativa.total_pagar_conductores()
             Cooperativa.__init__()
-        if opcion == 4:
+        if opcion == '4':
             Cooperativa.datos_taxi()
             Cooperativa.__init__()
-        if opcion == 5:
+        if opcion == '5':
             Cooperativa.salario_conductor()
             Cooperativa.__init__()
-        if opcion == 6:
+        if opcion == '6':
             system('cls')
             SystemExit
 
@@ -94,7 +98,7 @@ class Cooperativa:
                 taxis[i] = Taxi(marca=marcaC, modelo=modeloC, placa=placaC, tamañoMotor=tamaño_motorC, propietarioT=propietarioC, conductorT=conductorC)
                 change = True
                 break
-            i = i+1
+            i = i + 1
         
         if change == False:
             print("No se pueden ingresar más datos")
@@ -112,9 +116,10 @@ class Cooperativa:
             i = 0
             while i < len(taxis):
                 if taxis[i]._propietarioT.cedula == cedula:
-                    print(taxi[i].general_to_string())
+                    print(taxis[i].general_to_string())
                     let = True
                     break
+                i = i + 1
             
             if let == False:
                 print("Cédula no encontrada")
@@ -133,8 +138,9 @@ class Cooperativa:
                     total_salario += taxis[i]._conductorT.salario
                 else:
                     break # Because tha means that the index since this are empty
+                i = i + 1
             
-            print("El total a pagar es: " + total_salario)
+            print("El total a pagar es: " + str(total_salario))
                     
     # Mostar datos de un taxi en específico
     def datos_taxi():
@@ -144,14 +150,18 @@ class Cooperativa:
         else:
             print("Ingrese la placa abajo")
             placa = str(input())
+            let = False
 
             for i in taxis:
                 if placa == i._placa:
-                    print("Los datos del taxi son: " + i.marca_to_string())
+                    print(i.taxi_to_string())
+                    let = True
                     break
                 elif i == 0:
-                    print("Placa no identificada.")
                     break
+            
+            if let == False:
+                print("Placa no encontrada.")
 
     # Mostrar el salario de un conductor en específico
     def salario_conductor():
@@ -162,16 +172,21 @@ class Cooperativa:
             print("Ingrese la cédula del conductor abajo")
             cedula_conductor = int(input())
 
+            pagar = 0
             i = 0
+            let = False
             while i < len(taxis):
                 if taxis[i]._conductorT.cedula == cedula_conductor:
-                    pagar = taxis[i]._condutorT.salario
-                    print("El salario para este conductor es: " + pagar)
+                    pagar += taxis[i]._conductorT.salario
+                    print("El salario para este conductor es: " + str(pagar))
+                    let = True
                     break
                 elif taxis[i] == 0:
-                    print("Cédula no encontrada")
                     break
-
+                i = i + 1
+            
+            if let == False:
+                print("Cédula no encontrada")
 
 
 if __name__ == "__main__":

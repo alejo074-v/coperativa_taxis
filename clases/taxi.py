@@ -57,8 +57,8 @@ class Taxi:
         return cadena
     
     def taxi_to_string(self):
-        cadena = "Taxi{marca : " + str(self._marca)
+        cadena = "Marca : " + str(self._marca)
         cadena += ", modelo : " + str(self.modelo)
         cadena += ", placa : " + str(self.placa)
-        cadena += ", tama\u00f1oMotor : " + str(self.tamañoMotor) + "}"
+        cadena += ", tama\u00f1oMotor : " + str(self.tamañoMotor)
         return cadena
