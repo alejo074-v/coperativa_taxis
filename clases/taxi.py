@@ -1,14 +1,14 @@
-import conductor, propietario
+from propietario import Propietario
+from conductor import Conductor
 
 class Taxi:
-
-    def __init__(self, marca, modelo, placa, tamMotor, propietariot, conductort):
+    def __init__(self, marca, modelo, placa, tamMotor, propietarioT, conductorT):
         self._marca = marca
         self._modelo = modelo
         self._placa = placa
         self._tamMotor = tamMotor
-        self._propietariot = propietariot
-        self._conductort = conductort
+        self._propietarioT = propietarioT
+        self._conductorT = conductorT
 
     @property
     def marca(self):
@@ -34,35 +34,24 @@ class Taxi:
     @property
     def tamMotor(self):
         return self._tamMotor
+
     @tamMotor.setter
     def tamMotor(self, tamMotor):
         self._tamMotor = tamMotor
 
-    @property
-    def propietario(self):
-        return self._propietariot
-    @propietario.setter
-    def propietario(self, propietario):
-        self._propietariot = propietario
-
-    @property
-    def conductor(self):
-        return self._conductort
-    @conductor.setter
-    def conductor(self, conductor):
-        self._conductort = conductor
 
     def toString(self):
         cadena = "Taxi{marca="+str(self._marca)
         cadena += ", modelo="+str(self._modelo)
         cadena += ", placa="+str(self._placa)
         cadena += ", tamañoMotor="+str(self._tamMotor)
-        cadena += ", propietario="+self._propietariot.toString()
-        cadena += ", conductor="+self._conductort.toString()+"}"
+        cadena += ", propietario="+self._propietarioT.toString()
+        cadena += ", conductor="+self._conductorT.toString()+"}"
         return cadena
 
-if __name__ == '__main__':
-    propietario1 = propietario.Propietario(cedula=10323020, nombre="Daniel", telefono= 3135063124)
-    conductor1 = conductor.Conductor(cedula=10323020, nombre="Oracio", salario= 800000)
-    taxi = Taxi(marca = "audi", modelo = 2018, placa="ACB112", tamMotor= 1500, propietariot = propietario1, conductort = conductor1)
-    print(taxi.propietario.cedula)
+    def taxi_to_string(self):
+        cadena = "Marca : " + str(self._marca)
+        cadena += ", modelo : " + str(self.modelo)
+        cadena += ", placa : " + str(self.placa)
+        cadena += ", tama\u00f1oMotor : " + str(self.tamMotor)
+        return cadena

@@ -1,17 +1,9 @@
 class Conductor:
 
-    def __init__(self, cedula, nombre, salario):
-        self._cedula = cedula
+    def __init__(self, nombre, cedula, salario): #contadorConductores):
         self._nombre = nombre
-        self._salario = salario
-
-    @property
-    def cedula(self):
-        return self._cedula
-
-    @cedula.setter
-    def cedula(self, cedula):
         self._cedula = cedula
+        self._salario = salario
 
     @property
     def nombre(self):
@@ -20,6 +12,14 @@ class Conductor:
     @nombre.setter
     def nombre(self, nombre):
         self._nombre = nombre
+
+    @property
+    def cedula(self):
+        return self._cedula
+
+    @cedula.setter
+    def cedula(self, cedula):
+        self._cedula = cedula
 
     @property
     def salario(self):
@@ -34,7 +34,3 @@ class Conductor:
         cadena += ", nombre="+str(self._nombre)
         cadena += ", salario="+str(self._salario)+"}"
         return cadena
-
-if __name__ == '__main__':
-    conductor = Conductor(cedula=10323020, nombre="Oracio", salario= 800000)
-    print(conductor.toString())
