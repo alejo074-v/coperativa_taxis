@@ -1,10 +1,9 @@
-class Propietario:
+class Conductor:
 
-    def __init__(self, nombre, cedula, telefono):
+    def __init__(self, nombre, cedula, salario): #contadorConductores):
         self._nombre = nombre
         self._cedula = cedula
-        self._telefono = telefono
-
+        self._salario = salario
 
     @property
     def nombre(self):
@@ -14,7 +13,6 @@ class Propietario:
     def nombre(self, nombre):
         self._nombre = nombre
 
-
     @property
     def cedula(self):
         return self._cedula
@@ -23,17 +21,16 @@ class Propietario:
     def cedula(self, cedula):
         self._cedula = cedula
 
-
     @property
-    def telefono(self):
-        return self._telefono
+    def salario(self):
+        return self._salario
 
-    @telefono.setter
-    def telefono(self, telefono):
-        self._telefono = telefono
+    @salario.setter
+    def salario(self, salario):
+        self._salario = salario
 
     def toString(self):
-        cadena = "Propietario{cedula="+str(self._cedula)
+        cadena = "Conductor{cedula="+str(self._cedula)
         cadena += ", nombre="+str(self._nombre)
-        cadena += ", telefono="+str(self._telefono)+"}"
+        cadena += ", salario="+str(self._salario)+"}"
         return cadena
